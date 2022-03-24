@@ -1,16 +1,15 @@
-import React from 'react';
-import Popular from '../components/Popular';
-import Home from './Home';
+import React from "react";
+import Home from "./Home";
+import { Route, Routes } from "react-router-dom";
+import Cuisine from "./Cuisine";
 
 const Pages = () => {
-    return (
-        <div>
-            
-            <Home></Home>
-            <Popular></Popular>
-            
-        </div>
-    );
+  return (
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/cuisine/:type' element={<Cuisine />} />
+    </Routes>
+  );
 };
 
 export default Pages;

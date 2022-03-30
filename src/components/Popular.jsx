@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Popular = () => {
@@ -41,9 +42,11 @@ const Popular = () => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient></Gradient>
+                  <Link to={"/recipe/" + recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title} />
+                    <Gradient></Gradient>
+                  </Link>
                 </Card>
               </SplideSlide>
             );
@@ -59,8 +62,8 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 10rem;
-  width: 8rem;
+  min-height: 15rem;
+  width: 15rem;
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
